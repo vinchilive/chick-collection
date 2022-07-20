@@ -5,20 +5,21 @@ body {
   @apply font-sans;
 
   // Simple background with color gradient
-  @apply bg-gradient-to-b from-page-from_bg via-page-from_bg to-page-to_bg;
+  @apply bg-gradient-to-b from-sky-400 via-sky-400 to-sky-500;
 
   // Fullscreen background image example
   //background-image: url('../../images/background.jpg');
   //@apply bg-center bg-cover bg-fixed;
 }
 
-a, a:link, a:visited {
+a,
+a:link,
+a:visited {
   @apply font-semibold;
-  @apply text-links-txt;
+  @apply text-white;
 
   &:hover {
     @apply underline;
-    @apply text-links-hover_txt;
   }
 }
 
@@ -38,97 +39,55 @@ main {
   span.emoji {
     @apply text-2xl;
   }
+}
 
-  .error {
-    @apply flex flex-col;
-    @apply rounded-lg;
-    @apply p-3;
-    
-    @apply text-error-txt text-sm;
-    @apply bg-error-bg;
-    @apply border border-error-border;
-    @apply shadow;
+.error {
+  @apply flex flex-col;
+  @apply rounded-lg;
+  @apply p-3;
 
-    &::before {
-      content: 'Error';
+  @apply bg-red-500 text-sm text-white;
 
-      @apply font-semibold;
-      @apply text-base;
-    }
+  &::before {
+    content: 'Error';
 
-    button {
-      @apply inline-block;
-      @apply mt-3 ml-auto;
-      @apply px-2 py-1;
-      @apply rounded-md;
-
-      @apply font-semibold;
-      @apply text-btn_error-txt text-xs;
-      @apply bg-btn_error-bg;
-      @apply border-btn_error-border;
-
-      &:hover {
-        @apply text-btn_error-hover_txt;
-        @apply bg-btn_error-hover_bg;
-        @apply border-btn_error-hover_border;
-      }
-    }
+    @apply font-semibold;
+    @apply text-base;
   }
 
   button {
     @apply py-2 px-6;
 
-    @apply rounded-full;
-    
-    @apply font-semibold;
-    @apply text-btn-txt;
-    @apply bg-btn-bg;
-    @apply border border-btn-border;
-    @apply shadow-sm;
+    @apply font-semibold text-white text-xs bg-red-400 border-red-400;
 
     &:hover {
-      @apply text-btn-hover_txt;
-      @apply bg-btn-hover_bg;
-      @apply border-btn-hover_border;
+      @apply bg-red-600 border-red-600;
+    }
+  }
+}
+
+button {
+  &.primary {
+    @apply text-black bg-yellow-400 border-yellow-400;
+
+    &:hover {
+      @apply bg-yellow-500 border-yellow-500;
     }
 
-    &.primary {
-      @apply text-btn_primary-txt;
-      @apply bg-btn_primary-bg;
-      @apply border-btn_primary-border;
+    &:disabled {
+      @apply opacity-30;
 
       &:hover {
-        @apply text-btn_primary-hover_txt;
-        @apply bg-btn_primary-hover_bg;
-        @apply border-btn_primary-hover_border;
-      }
-
-      &:disabled {
-        @apply opacity-30;
-
-        &:hover {
-          @apply cursor-not-allowed;
-        }
+        @apply cursor-not-allowed;
       }
     }
   }
 
-  input[type=text] {
-    @apply py-2 px-4;
+  &.success {
+    @apply text-black bg-lime-500 border-lime-500;
 
-    @apply rounded-full;
-    
-    @apply font-mono font-semibold;
-    @apply text-txt_input-txt;
-    @apply bg-txt_input-bg;
-    @apply border border-txt_input-border;
-    @apply shadow-sm;
-    @apply outline-none;
-
-    &:focus {
-      @apply text-txt_input-focus_txt;
-      @apply bg-txt_input-focus_bg;
-      @apply border-txt_input-focus_border;
+    &:hover {
+      @apply bg-lime-600 border-lime-600;
     }
 
     &:disabled {
@@ -138,17 +97,37 @@ main {
         @apply cursor-not-allowed;
       }
     }
+  }
+}
 
-    &::placeholder {
-      @apply text-txt_input-placeholder_txt;
-      @apply opacity-50;
+input[type='text'] {
+  @apply py-2 px-4;
+
+  @apply rounded-full;
+
+  @apply font-mono font-semibold text-indigo-600 bg-white border border-slate-200 shadow-sm outline-none;
+
+  &:focus {
+    @apply text-indigo-600 bg-slate-50 border-indigo-300;
+  }
+
+  &:disabled {
+    @apply opacity-50;
+
+    &:hover {
+      @apply cursor-not-allowed;
     }
   }
 
-  label {
-    @apply mt-4 mb-1 ml-1;
-
-    @apply font-semibold;
-    @apply text-label text-sm;
+  &::placeholder {
+    @apply text-indigo-600;
+    @apply opacity-50;
   }
+}
+
+label {
+  @apply mt-4 mb-1 ml-1;
+
+  @apply font-semibold;
+  @apply text-indigo-400 text-sm;
 }

@@ -1,17 +1,7 @@
 #minting-dapp {
-  @apply flex flex-col gap-6;
-  @apply mt-6 mx-auto;
-  @apply w-full;
-  @apply max-w-md;
-
   .no-wallet {
     @apply flex flex-col;
-    @apply px-4 py-6;
-    @apply rounded-lg;
-    
-    @apply text-popups-txt;
-    @apply bg-popups-bg;
-    @apply shadow;
+    @apply px-4 pb-6;
 
     .use-block-explorer {
       &:not(:first-child) {
@@ -20,46 +10,12 @@
 
       &:not(:first-child)::before {
         content: '';
-        
+
         @apply block;
         @apply mx-auto my-3;
         @apply w-12;
 
-        @apply border-t-2 border-popups-internal_border;
-      }
-    }
-
-    .merkle-proof-manual-address {
-      @apply flex flex-col;
-      @apply mt-4;
-
-      h2 {
-        @apply font-semibold;
-        @apply text-titles text-xl text-center;
-      }
-
-      p {
-        @apply mt-3;
-      }
-
-      .feedback-message {
-        @apply rounded-lg;
-        @apply mt-4;
-        @apply p-3;
-        
-        @apply text-wl_message-txt text-sm;
-        @apply bg-wl_message-bg;
-      }
-
-      input {
-        @apply rounded-t-lg;
-        @apply rounded-b-none;
-      }
-
-      button {
-        @apply rounded-b-lg;
-        @apply rounded-t-none;
-        @apply border-t-0;
+        @apply border-t-2 border-slate-200;
       }
     }
   }
@@ -67,15 +23,12 @@
   .collection-not-ready {
     @apply flex items-center justify-center;
     @apply px-6 py-4;
-    @apply rounded-lg;
 
-    @apply text-popups-txt text-sm;
-    @apply bg-popups-bg;
-    @apply shadow;
+    @apply text-white;
 
     .spinner {
       @apply inline;
-      @apply -ml-1 mr-3 h-8 w-8 text-loading_spinner;
+      @apply -ml-1 mr-3 h-8 w-8 text-sky-600;
       @apply animate-spin;
     }
   }
@@ -85,8 +38,8 @@
     @apply rounded-lg;
 
     @apply font-mono;
-    @apply text-popups-txt text-sm;
-    @apply bg-popups-bg;
+    @apply text-slate-800 text-sm;
+    @apply bg-white;
     @apply shadow;
 
     & > * {
@@ -94,7 +47,7 @@
       @apply px-6 py-4;
 
       .label {
-        @apply text-xs text-label;
+        @apply text-xs text-indigo-400;
       }
     }
 
@@ -102,18 +55,19 @@
       @apply sm:col-span-2;
       @apply overflow-hidden;
 
-      @apply border-b border-popups-internal_border;
+      @apply border-b border-slate-200;
 
       .address {
         @apply w-full;
-        
+
         @apply font-semibold;
         @apply truncate;
         @apply text-center;
       }
     }
 
-    .supply, .current-sale {
+    .supply,
+    .current-sale {
       .label {
         @apply block;
 
@@ -121,18 +75,18 @@
       }
 
       &.supply {
-        @apply border-b sm:border-b-0 sm:border-r border-popups-internal_border;
+        @apply border-b sm:border-b-0 sm:border-r border-slate-200;
       }
     }
   }
 
-  .cannot-mint, .not-mainnet, .collection-sold-out {
+  .cannot-mint,
+  .not-mainnet,
+  .collection-sold-out {
     @apply rounded-lg;
     @apply px-6 py-4;
 
-    @apply text-popups-txt text-center;
-    @apply bg-popups-bg;
-    @apply shadow;
+    @apply text-center text-white;
 
     &.cannot-mint .emoji {
       @apply block;
@@ -141,10 +95,7 @@
     }
 
     &.not-mainnet {
-      @apply text-warning-txt;
-      @apply bg-warning-bg;
-      @apply border border-warning-border;
-
+      @apply text-white bg-yellow-400 border border-y-red-500;
 
       .small {
         @apply block;
@@ -162,27 +113,20 @@
     }
   }
 
+  .preview {
+    @apply w-full p-8 pb-4;
+
+    img {
+      @apply w-full;
+    }
+  }
+
   .mint-widget {
     @apply flex flex-col items-center;
     @apply rounded-lg;
     @apply overflow-hidden;
 
-    @apply text-popups-txt text-center;
-    @apply bg-popups-bg;
-    @apply shadow;
-
-    .preview {
-      @apply p-8;
-
-      @apply bg-token_preview;
-      
-      img {
-        @apply m-auto;
-        @apply max-h-52;
-        
-        filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.4));
-      }
-    }
+    @apply text-slate-800 text-center;
 
     .price {
       @apply px-6 py-4;
@@ -190,10 +134,6 @@
 
     & > * {
       @apply w-full;
-
-      &:not(:last-child) {
-        @apply border-b border-popups-internal_border;
-      }
     }
 
     .controls {
@@ -204,21 +144,23 @@
         @apply border-0;
       }
 
-      .decrease, .mint-amount {
-        @apply border-r border-popups-internal_border;
-      }
-
       .mint-amount {
         @apply flex items-center justify-center;
         @apply w-full;
 
         @apply font-semibold;
-        @apply text-label text-lg;
       }
 
       .primary {
         @apply border-0;
       }
     }
+  }
+
+  .tooltip::after {
+    content: '';
+    border-color: currentColor transparent transparent transparent;
+
+    @apply rotate-90 -translate-y-1/2 absolute top-1/2 -left-5 -ml-5 border-[20px] border-solid;
   }
 }
